@@ -1,5 +1,6 @@
 package org.example.pessoa;
 
+import org.example.exceptions.CpfException;
 import org.example.pessoa.Pessoa;
 
 import java.util.Date;
@@ -10,7 +11,7 @@ public class Medico extends Pessoa {
     private Especializacao especializacao;
 
 
-    public Medico(Integer id, String crm, Especializacao especializacao, String cpf, String nome, Date nascimento, String sexo, String tipo_sanguineo) {
+    public Medico(Integer id, String crm, Especializacao especializacao, String cpf, String nome, Date nascimento, String sexo, String tipo_sanguineo) throws CpfException {
         super(id, cpf, nome, nascimento, sexo, tipo_sanguineo);
         this.crm = crm;
         this.especializacao = especializacao;
