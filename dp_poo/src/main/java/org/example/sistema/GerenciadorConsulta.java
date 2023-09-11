@@ -7,12 +7,12 @@ import org.example.pessoa.Medico;
 import org.example.pessoa.Paciente;
 import org.example.ubs.Ubs;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public interface GerenciadorConsulta {
 
 
-    String agendar(Integer id, Medico medico, Paciente paciente, Ubs ubs, ModalidadeConsulta modalidade, Date dataConsulta, Date horaInicio, Date horaFinal, String anotacoes);
+    String agendar(Integer id, Medico medico, Paciente paciente, Ubs ubs, ModalidadeConsulta modalidade, LocalDateTime horaInicio);
 
     String cancelar(Integer idConsulta);
 

@@ -6,7 +6,7 @@ import org.example.pessoa.Paciente;
 import org.example.sistema.GerenciadorConsulta;
 import org.example.ubs.Ubs;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Consulta implements GerenciadorConsulta {
 
@@ -15,15 +15,10 @@ public class Consulta implements GerenciadorConsulta {
     private Paciente paciente;
     private Ubs ubs;
     private ModalidadeConsulta modalidade;
-    private Date dataConsulta;
-    private Date horaInicio; //conferir depois
-    private Date horaFinal; //conferir depois
+    private LocalDateTime horaInicio; //conferir depois
+    private LocalDateTime horaFinal; //conferir depois
     private String anotacoes;
     private StatusConsulta statusConsulta;
-
-    public Consulta() {
-
-    }
 
     public Integer getId() {
         return id;
@@ -45,15 +40,11 @@ public class Consulta implements GerenciadorConsulta {
         return modalidade;
     }
 
-    public Date getDataConsulta() {
-        return dataConsulta;
-    }
-
-    public Date getHoraInicio() {
+    public LocalDateTime getHoraInicio() {
         return horaInicio;
     }
 
-    public Date getHoraFinal() {
+    public LocalDateTime getHoraFinal() {
         return horaFinal;
     }
 
@@ -67,16 +58,14 @@ public class Consulta implements GerenciadorConsulta {
 
     //métodos do gerenciador
     @Override
-    public String agendar(Integer id, Medico medico, Paciente paciente, Ubs ubs, ModalidadeConsulta modalidade, Date dataConsulta, Date horaInicio, Date horaFinal, String anotacoes) {
+    public String agendar(Integer id, Medico medico, Paciente paciente, Ubs ubs, ModalidadeConsulta modalidade, LocalDateTime horaInicio) {
         this.id = id;
         this.medico = medico;
         this.paciente = paciente;
         this.ubs = ubs;
         this.modalidade = modalidade;
-        this.dataConsulta = dataConsulta;
         this.horaInicio = horaInicio;
-        this.horaFinal = horaFinal;
-        this.anotacoes = anotacoes;
+        this.horaFinal = horaInicio.plusMinutes(30);
         this.statusConsulta = StatusConsulta.PENDENTE;
         return "Consulta Marcada";
     }
