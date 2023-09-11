@@ -3,7 +3,7 @@ package org.example.pessoa;
 import org.example.exceptions.CpfException;
 import org.example.sistema.ValidadorCpf;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 public abstract class Pessoa implements ValidadorCpf {
@@ -11,11 +11,11 @@ public abstract class Pessoa implements ValidadorCpf {
     private Integer id;
     private String cpf;
     private String nome;
-    private Date nascimento;
+    private LocalDate nascimento;
     private String sexo;
     private String tipo_sanguineo;
 
-    public Pessoa(Integer id, String cpf, String nome, Date nascimento, String sexo, String tipo_sanguineo) throws CpfException {
+    public Pessoa(Integer id, String cpf, String nome, LocalDate nascimento, String sexo, String tipo_sanguineo) throws CpfException {
         this.id = id;
         this.cpf = cpf;
         this.nome = nome;
@@ -40,7 +40,7 @@ public abstract class Pessoa implements ValidadorCpf {
         return nome;
     }
 
-    public Date getNascimento() {
+    public LocalDate getNascimento() {
         return nascimento;
     }
 

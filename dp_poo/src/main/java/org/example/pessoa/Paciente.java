@@ -1,20 +1,19 @@
 package org.example.pessoa;
 
 import org.example.exceptions.CpfException;
-import org.example.pessoa.Pessoa;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class Paciente extends Pessoa {
 
-    private Date ultima_consulta;
+    private LocalDate ultima_consulta;
 
-    public Paciente(Integer id, String cpf, String nome, Date nascimento, String sexo, String tipo_sanguineo, Date ultima_consulta) throws CpfException {
+    public Paciente(Integer id, String cpf, String nome, LocalDate nascimento, String sexo, String tipo_sanguineo) throws CpfException {
         super(id, cpf, nome, nascimento, sexo, tipo_sanguineo);
-        this.ultima_consulta = ultima_consulta;
     }
 
-    public Date getUltima_consulta() {
+    public LocalDate getUltima_consulta() {
         return ultima_consulta;
     }
 }
